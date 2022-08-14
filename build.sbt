@@ -1,4 +1,4 @@
-name := "-template"
+name := "async"
 
 version := "0.1.0"
 
@@ -21,7 +21,7 @@ scalacOptions ++= Seq(
   "-language:existentials",
 )
 
-organization := "io.github.edadma"
+organization := "io.github.spritzsn"
 
 githubOwner := "edadma"
 
@@ -36,6 +36,12 @@ licenses := Seq("ISC" -> url("https://opensource.org/licenses/ISC"))
 homepage := Some(url("https://github.com/edadma/" + name.value))
 
 //libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.13" % "test"
+
+libraryDependencies += "com.github.rssh" %%% "dotty-cps-async" % "0.9.10"
+
+libraryDependencies ++= Seq(
+  "io.github.spritzsn" %%% "libuv" % "0.1.0-pre.1",
+)
 
 publishMavenStyle := true
 
