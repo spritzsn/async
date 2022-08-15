@@ -8,9 +8,8 @@ import scala.concurrent.{ExecutionContext, ExecutionContextExecutor, Future}
 
 object EventLoop extends ExecutionContextExecutor:
 
-  private val loop: Loop = defaultLoop
   private val taskQueue = new mutable.Queue[Runnable]
-  private val handle = loop.prepare
+  private val handle = defaultLoop.prepare
 
   val prepareCallback: Prepare => Unit =
     (handle: Prepare) =>
@@ -26,13 +25,11 @@ object EventLoop extends ExecutionContextExecutor:
     taskQueue enqueue runnable
     handle start prepareCallback
 
-  def reportFailure(t: Throwable): Unit =
-    t.printStackTrace()
-//    sys.error(t.getMessage)
+  def reportFailure(t: Throwable): Unit = t.printStackTrace()
 
   @tailrec
   def run(): Unit =
-    if loop.run() != 0 then run()
+    if defaultLoop.run() != 0 then run()
 
   private val bootstrapFuture =
-    if !loop.isAlive then Future(run())(ExecutionContext.global)
+    if !defaultLoop.isAlive then Future(run())(ExecutionContext.global)

@@ -1,6 +1,6 @@
 name := "async"
 
-version := "0.1.0-pre.8"
+version := "0.1.0-pre.9"
 
 scalaVersion := "3.1.3"
 
