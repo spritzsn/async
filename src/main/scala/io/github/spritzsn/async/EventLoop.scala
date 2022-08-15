@@ -28,7 +28,7 @@ object EventLoop extends ExecutionContextExecutor:
 
   def reportFailure(t: Throwable): Unit =
     t.printStackTrace()
-    sys.error(t.getMessage)
+//    sys.error(t.getMessage)
 
   @tailrec
   def run(): Unit =
