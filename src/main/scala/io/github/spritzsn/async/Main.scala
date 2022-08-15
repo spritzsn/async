@@ -10,5 +10,5 @@
 //  async {
 //    for i <- 1 to 3 do
 //      println(i)
-//      await(Timer(1 second))
+//      await(Timer(.5 second))
 //  }

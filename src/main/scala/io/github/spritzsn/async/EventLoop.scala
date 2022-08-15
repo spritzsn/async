@@ -31,6 +31,8 @@ object EventLoop extends ExecutionContextExecutor:
     sys.error(t.getMessage)
 
   @tailrec
-  def run(): Unit = if loop.run() != 0 then run()
+  def run(): Unit =
+    if loop.run() != 0 then run()
 
-  private val bootstrapFuture = Future(run())(ExecutionContext.global)
+  private val bootstrapFuture =
+    if !loop.isAlive then Future(run())(ExecutionContext.global)

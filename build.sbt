@@ -1,6 +1,6 @@
 name := "async"
 
-version := "0.1.0.pre.3"
+version := "0.1.0.pre.5"
 
 scalaVersion := "3.1.3"
 
@@ -40,7 +40,7 @@ homepage := Some(url("https://github.com/edadma/" + name.value))
 libraryDependencies += "com.github.rssh" %%% "dotty-cps-async" % "0.9.10"
 
 libraryDependencies ++= Seq(
-  "io.github.spritzsn" %%% "libuv" % "0.1.0-pre.4",
+  "io.github.spritzsn" %%% "libuv" % "0.1.0-pre.5",
 )
 
 publishMavenStyle := true
