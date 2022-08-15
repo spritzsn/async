@@ -10,5 +10,11 @@
 //  async {
 //    for i <- 1 to 3 do
 //      println(i)
-//      await(Timer(.5 second))
+//      await(timer(.5 second))
+//  }
+
+//  async {
+//    for i <- 1 to 3 do
+//      println(i)
+//      println(await(spawn("/home/ed/dev-sn/test/target/scala-3.1.3/test-out", Vector("3", i.toString))))
 //  }
