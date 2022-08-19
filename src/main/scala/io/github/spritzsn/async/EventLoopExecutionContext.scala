@@ -6,7 +6,7 @@ import scala.annotation.tailrec
 import scala.collection.mutable
 import scala.concurrent.{ExecutionContext, ExecutionContextExecutor, Future}
 
-object EventLoop extends ExecutionContextExecutor:
+object EventLoopExecutionContext extends ExecutionContextExecutor:
 
   private val taskQueue = new mutable.Queue[Runnable]
   private val handle = defaultLoop.prepare

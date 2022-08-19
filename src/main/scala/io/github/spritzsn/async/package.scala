@@ -1,4 +1,5 @@
-package io.github.spritzsn
+package io.github.spritzsn.async
 
-package object async:
-  implicit val loop: EventLoop.type = EventLoop
+import scala.concurrent.ExecutionContext
+
+implicit val loop: ExecutionContext = EventLoopExecutionContext
