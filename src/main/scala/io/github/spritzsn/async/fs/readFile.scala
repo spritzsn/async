@@ -20,9 +20,7 @@ def readFile(path: String): Future[ArraySeq[Byte]] =
       def readcb(req: File): Unit =
         val res = req.getResult
 
-        if res < 0 then
-          req.buffer.dispose()
-          promise.failure(new RuntimeException(errorMessage(openres, "uv_fs_read callback")))
+        if res < 0 then promise.failure(new RuntimeException(errorMessage(res, "uv_fs_read callback")))
         else if res > 0 then
           req.buffer.read(buf, res)
           defaultLoop.read(openres, readcb)
