@@ -1,6 +1,6 @@
 name := "async"
 
-version := "0.0.3"
+version := "0.0.5"
 
 versionScheme := Some("early-semver")
 
