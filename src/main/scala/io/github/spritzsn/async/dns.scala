@@ -12,5 +12,5 @@ def getAddrInfo(node: String, service: String, family: Int = AF_INET): Future[(I
 
   def callback(status: Int, addrInfo: List[AddrInfo]): Unit = promise.success((status, addrInfo))
 
-  defaultLoop.getAddrInfo(callback, "google.com", null, family)
+  defaultLoop.getAddrInfo(callback, node, service, family)
   promise.future
