@@ -16,6 +16,20 @@
 //    }
 //  }
 
+//package io.github.spritzsn.async
+//
+//import cps.*
+//import cps.monads.FutureAsyncMonad
+//
+//import scala.concurrent.Future
+//
+//@main def run(): Unit =
+//  async {
+//    val (status, addrInfo) = await(getAddrInfo("google.com", null))
+//
+//    println(s"status: $status; addrInfo: $addrInfo")
+//  }
+
 //  async {
 //    for i <- 1 to 6 do
 //      println(i)
