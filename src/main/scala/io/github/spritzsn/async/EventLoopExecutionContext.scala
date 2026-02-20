@@ -22,8 +22,8 @@ object EventLoopExecutionContext extends ExecutionContextExecutor:
       if taskQueue.isEmpty then handle.stop
 
   def execute(runnable: Runnable): Unit =
-    taskQueue enqueue runnable
-    handle start prepareCallback
+    taskQueue.enqueue(runnable)
+    handle.start(prepareCallback)
 
   def reportFailure(t: Throwable): Unit = t.printStackTrace()
 
@@ -32,4 +32,4 @@ object EventLoopExecutionContext extends ExecutionContextExecutor:
     if defaultLoop.run() != 0 then run()
 
   private val bootstrapFuture =
-    if !defaultLoop.isAlive then Future(run())(ExecutionContext.global)
+    if !defaultLoop.isAlive then Future(run())(using ExecutionContext.global)

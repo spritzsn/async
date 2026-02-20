@@ -1,18 +1,45 @@
+import xerial.sbt.Sonatype.sonatypeCentralHost
+
+ThisBuild / licenses               := Seq("ISC" -> url("https://opensource.org/licenses/ISC"))
+ThisBuild / versionScheme          := Some("semver-spec")
+ThisBuild / evictionErrorLevel     := Level.Warn
+ThisBuild / scalaVersion           := "3.8.1"
+ThisBuild / organization           := "io.github.edadma"
+ThisBuild / organizationName       := "edadma"
+ThisBuild / organizationHomepage   := Some(url("https://github.com/edadma"))
+ThisBuild / version                := "0.0.14"
+ThisBuild / sonatypeCredentialHost := sonatypeCentralHost
+
+ThisBuild / publishConfiguration := publishConfiguration.value.withOverwrite(true).withChecksums(Vector.empty)
+ThisBuild / resolvers += Resolver.mavenLocal
+ThisBuild / resolvers += Resolver.sonatypeCentralSnapshots
+ThisBuild / resolvers += Resolver.sonatypeCentralRepo("releases")
+
+ThisBuild / sonatypeProfileName := "io.github.edadma"
+
+ThisBuild / scmInfo := Some(
+  ScmInfo(
+    url("https://github.com/edadma/async"),
+    "scm:git@github.com:edadma/async.git",
+  ),
+)
+ThisBuild / developers := List(
+  Developer(
+    id = "edadma",
+    name = "Edward A. Maxedon, Sr.",
+    email = "edadma@gmail.com",
+    url = url("https://github.com/edadma"),
+  ),
+)
+
+ThisBuild / homepage    := Some(url("https://github.com/edadma/async"))
+ThisBuild / description := "Async/await for Scala Native with libuv event loop"
+
+ThisBuild / publishTo := sonatypePublishToBundle.value
+
 name := "async"
 
-version := "0.0.13"
-
-versionScheme := Some("early-semver")
-
-scalaVersion := "3.2.0"
-
 enablePlugins(ScalaNativePlugin)
-
-nativeLinkStubs := true
-
-nativeMode := "debug"
-
-nativeLinkingOptions := Seq(s"-L${baseDirectory.value}/native-lib")
 
 scalacOptions ++= Seq(
   "-deprecation",
@@ -23,27 +50,11 @@ scalacOptions ++= Seq(
   "-language:existentials",
 )
 
-organization := "io.github.spritzsn"
+libraryDependencies += "com.github.rssh" %%% "dotty-cps-async" % "0.9.23"
 
-githubOwner := "spritzsn"
+libraryDependencies += "io.github.edadma" %%% "libuv" % "0.0.28"
 
-githubRepository := name.value
-
-Global / onChangedBuildSource := ReloadOnSourceChanges
-
-resolvers += Resolver.githubPackages("edadma")
-
-licenses := Seq("ISC" -> url("https://opensource.org/licenses/ISC"))
-
-homepage := Some(url("https://github.com/edadma/" + name.value))
-
-//libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.13" % "test"
-
-libraryDependencies += "com.github.rssh" %%% "dotty-cps-async" % "0.9.10"
-
-libraryDependencies ++= Seq(
-  "io.github.spritzsn" %%% "libuv" % "0.0.25",
-)
+libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.19" % "test"
 
 publishMavenStyle := true
 
