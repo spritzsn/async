@@ -1,8 +1,8 @@
 # async
 
 ![Maven Central](https://img.shields.io/maven-central/v/io.github.edadma/async_native0.5_3)
-[![Last Commit](https://img.shields.io/github/last-commit/edadma/async)](https://github.com/edadma/async/commits)
-![GitHub](https://img.shields.io/github/license/edadma/async)
+[![Last Commit](https://img.shields.io/github/last-commit/spritzsn/async)](https://github.com/spritzsn/async/commits)
+![GitHub](https://img.shields.io/github/license/spritzsn/async)
 ![Scala Version](https://img.shields.io/badge/Scala-3.8.1-blue.svg)
 ![Scala Native Version](https://img.shields.io/badge/Scala_Native-0.5.10-blue.svg)
 
