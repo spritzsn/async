@@ -52,7 +52,7 @@ scalacOptions ++= Seq(
 
 libraryDependencies += "com.github.rssh" %%% "dotty-cps-async" % "0.9.23"
 
-libraryDependencies += "io.github.edadma" %%% "libuv" % "0.0.28"
+libraryDependencies += "io.github.edadma" %%% "libuv" % "0.0.29"
 
 libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.19" % "test"
 
