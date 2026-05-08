@@ -14,7 +14,7 @@ object EventLoopExecutionContext extends ExecutionContextExecutor:
   val prepareCallback: Prepare => Unit =
     (handle: Prepare) =>
       while taskQueue.nonEmpty do
-        val runnable = taskQueue.dequeue
+        val runnable = taskQueue.dequeue()
 
         try runnable.run()
         catch case t: Throwable => reportFailure(t)
