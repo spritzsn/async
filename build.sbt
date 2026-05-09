@@ -7,7 +7,7 @@ ThisBuild / scalaVersion           := "3.8.3"
 ThisBuild / organization           := "io.github.edadma"
 ThisBuild / organizationName       := "edadma"
 ThisBuild / organizationHomepage   := Some(url("https://github.com/edadma"))
-ThisBuild / version                := "0.0.17"
+ThisBuild / version                := "0.0.18"
 ThisBuild / sonatypeCredentialHost := sonatypeCentralHost
 
 ThisBuild / publishConfiguration := publishConfiguration.value.withOverwrite(true).withChecksums(Vector.empty)
@@ -52,7 +52,7 @@ scalacOptions ++= Seq(
 
 libraryDependencies += "com.github.rssh" %%% "dotty-cps-async" % "0.9.23"
 
-libraryDependencies += "io.github.edadma" %%% "libuv" % "0.0.31"
+libraryDependencies += "io.github.edadma" %%% "libuv" % "0.0.32"
 
 libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.19" % "test"
 
